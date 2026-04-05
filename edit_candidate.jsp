@@ -254,6 +254,7 @@ h1, h2 {
 <body>
 	<%@ include file="includes/nav.jsp" %>
 	<%@ include file="includes/db.jsp" %>
+	<%@ include file="includes/create_tables.jsp" %>
 
 	<h1>Edit Candidate</h1>
 

@@ -249,6 +249,7 @@ tr:nth-child(even) {
 <body>
 	<%@ include file="includes/nav.jsp" %>
 	<%@ include file="includes/db.jsp" %>
+	<%@ include file="includes/create_tables.jsp" %>
 
 	<h1>Manage Candidates</h1>
 

@@ -54,8 +54,11 @@ try {
     request.setAttribute("dbCon", dbCon);
 } catch (Exception e) {
     // save error message for diagnostics and log it
-    request.setAttribute("dbError", e.getMessage());
-    out.println("<!-- DB connection error: " + e.getMessage() + " -->");
+    String errorMsg = "DB Connection Error: " + e.getMessage() +
+                     " | URL: " + (dbUrl != null ? dbUrl.replaceAll("password=[^&]*", "password=***") : "null") +
+                     " | User: " + (dbUser != null ? dbUser : "null");
+    request.setAttribute("dbError", errorMsg);
+    out.println("<!-- " + errorMsg + " -->");
     e.printStackTrace();
 }
 
