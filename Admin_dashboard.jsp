@@ -118,7 +118,8 @@ body {
 		<a href="voter_approve.jsp">VOTER</a>
 		<a href="candidate_list.jsp">CANDIDATE</a>
 		<a href="manage_candidates.jsp">MANAGE CANDIDATES</a>
-		<a href="view_elections.jsp">ELECTION</a>
+		<a href="declare_election.jsp">DECLARE ELECTION</a>
+		<a href="view_elections.jsp">VIEW ELECTIONS</a>
 		<a href="report.jsp">RESULT</a>
 		<a href="report.jsp">REPORT</a>
 		<a href="feedback.jsp">FEEDBACK</a>
