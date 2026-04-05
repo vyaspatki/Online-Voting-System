@@ -1,0 +1,9 @@
+.git
+.gitignore
+README.md
+RAILWAY_DEPLOYMENT.md
+deploy_to_tomcat.ps1
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
