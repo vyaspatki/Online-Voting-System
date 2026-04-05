@@ -3,6 +3,8 @@
 README.md
 RAILWAY_DEPLOYMENT.md
 deploy_to_tomcat.ps1
+ROOT.war
+*.class
 *.log
 *.tmp
 .DS_Store
