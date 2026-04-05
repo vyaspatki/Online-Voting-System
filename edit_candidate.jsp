@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@page isELIgnored="false"%>
+<%@ include file="includes/db.jsp" %>
+<%@ include file="includes/create_tables.jsp" %>
 <%
 	// Get candidate ID from URL parameter
 	String idParam = request.getParameter("id");
@@ -253,8 +255,6 @@ h1, h2 {
 </head>
 <body>
 	<%@ include file="includes/nav.jsp" %>
-	<%@ include file="includes/db.jsp" %>
-	<%@ include file="includes/create_tables.jsp" %>
 
 	<h1>Edit Candidate</h1>
 

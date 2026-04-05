@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@page isELIgnored="false"%>
+<%@ include file="includes/db.jsp" %>
+<%@ include file="includes/create_tables.jsp" %>
 <%
 	// Handle form submissions
 	String action = request.getParameter("action");
@@ -248,8 +250,6 @@ tr:nth-child(even) {
 </head>
 <body>
 	<%@ include file="includes/nav.jsp" %>
-	<%@ include file="includes/db.jsp" %>
-	<%@ include file="includes/create_tables.jsp" %>
 
 	<h1>Manage Candidates</h1>
 
