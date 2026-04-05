@@ -100,64 +100,6 @@ h1 {
 
 	<table border="2" align="center">
 		<caption>
-			<h2 align="center">Candidates List</h2>
-		</caption>
-
-		<tr>
-			<th>Candidate Name</th>
-			<th>Total Votes</th>
-
-		</tr>
-		<%
-		Connection con = null;
-		PreparedStatement ps, ps1;
-		Statement st;
-		ResultSet rs, rs1, rs2, rs3;
-
-		try {
-			con = (Connection) request.getAttribute("dbCon");
-			if (con != null) {
-				// Show winner table if exists (display name and votes)
-				ps1 = con.prepareStatement("select * from winner");
-				rs3 = ps1.executeQuery();
-				while (rs3.next()) {
-				    String wname = rs3.getString("name");
-				    int wvotes = rs3.getInt("votes");
-				%>
-				<tr>
-					<td><%=wname%></td>
-					<td><%=wvotes%></td>
-				</tr>
-				<%
-				}
-				rs3.close();
-				ps1.close();
-
-				// Show vote count per candidate (join with candidate for name)
-				ps = con.prepareStatement("SELECT r.cid, c.name, COUNT(*) as voteCount FROM result r LEFT JOIN candidate c ON (r.cid::int = c.id) GROUP BY r.cid, c.name");
-				rs = ps.executeQuery();
-				while (rs.next()) {
-					String candidateName = rs.getString("name");
-					int voteCount = rs.getInt("voteCount");
-				%>
-				<tr>
-					<td><%=candidateName != null ? candidateName : rs.getString("cid")%></td>
-					<td><%=voteCount%></td>
-				</tr>
-				<%
-				}
-				rs.close();
-				ps.close();
-			}
-		} catch (Exception e) {
-			out.println("Error: " + e.getMessage());
-		}
-        %>
-    </table>
-    <br>
-    <br>
-	<table border="2" align="center">
-		<caption>
 			<h2 align="center">Winner</h2>
 		</caption>
 		<tr>
@@ -167,7 +109,11 @@ h1 {
 		</tr>
 
 		<%
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs2 = null;
 		try {
+			con = (Connection) request.getAttribute("dbCon");
 			if (con != null) {
 				ps = con.prepareStatement("select * from winner");
 				rs2 = ps.executeQuery();

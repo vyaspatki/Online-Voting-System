@@ -82,8 +82,11 @@ try {
                 "id SERIAL PRIMARY KEY," +
                 "cid INT," +
                 "name VARCHAR(255)," +
-                "votes INT" +
+                "votes INT," +
+                "eid VARCHAR(100)" +
             ")");
+            // Ensure old tables get the eid column if missing
+            stmt.execute("ALTER TABLE winner ADD COLUMN IF NOT EXISTS eid VARCHAR(100)");
             // Reset sequence to avoid duplicate key errors
             stmt.execute("SELECT setval('winner_id_seq', COALESCE((SELECT MAX(id) FROM winner), 0) + 1, false)");
         } catch (Exception e) {
