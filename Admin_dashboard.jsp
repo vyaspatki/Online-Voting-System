@@ -120,7 +120,7 @@ body {
 		<a href="manage_candidates.jsp">MANAGE CANDIDATES</a>
 		<a href="declare_election.jsp">DECLARE ELECTION</a>
 		<a href="view_elections.jsp">VIEW ELECTIONS</a>
-		<a href="report.jsp">RESULT</a>
+		<a href="result.jsp">RESULT</a>
 		<a href="report.jsp">REPORT</a>
 		<a href="feedback.jsp">FEEDBACK</a>
 	</div>

@@ -147,8 +147,9 @@ input[type=submit]:hover {
 				<td><%=rs.getString("name")%></td>
 				<td><%=rs.getString("description")%></td>
 				<td>
-					<form action="Vote" method="post">
-						<input type="radio" name="candidate" value="<%=rs.getInt("cid")%>" required>
+					<form action="submit_vote.jsp" method="post">
+						<input type="hidden" name="electionId" value="ELEC_DEFAULT">
+						<input type="radio" name="candidateId" value="<%=rs.getInt("cid")%>" required>
 						<input type="submit" value="Vote">
 					</form>
 				</td>
