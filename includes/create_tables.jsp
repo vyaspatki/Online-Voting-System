@@ -13,6 +13,8 @@ try {
                 "date VARCHAR(20)," +
                 "eid VARCHAR(100)" +
             ")");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('election_id_seq', COALESCE((SELECT MAX(id) FROM election), 0) + 1, false)");
         } catch (Exception e) {
             // Table may already exist
         }
@@ -26,6 +28,8 @@ try {
             ")");
             // add a default admin account if table is empty (username/password both 'admin')
             stmt.execute("INSERT INTO admin(username,password) SELECT 'admin','admin' WHERE NOT EXISTS (SELECT 1 FROM admin)");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('admin_id_seq', COALESCE((SELECT MAX(id) FROM admin), 0) + 1, false)");
         } catch (Exception e) {
             // ignore
         }
@@ -42,6 +46,8 @@ try {
                 "is_voter VARCHAR(10)," +
                 "eid VARCHAR(100)" +
             ")");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('candidate_id_seq', COALESCE((SELECT MAX(id) FROM candidate), 0) + 1, false)");
         } catch (Exception e) {
             // Table may already exist
         }
@@ -55,6 +61,8 @@ try {
                 "password VARCHAR(255)," +
                 "email VARCHAR(255)" +
             ")");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('voter_id_seq', COALESCE((SELECT MAX(id) FROM voter), 0) + 1, false)");
         } catch (Exception e) {
             // Table may already exist
         }
@@ -76,6 +84,8 @@ try {
                 "name VARCHAR(255)," +
                 "votes INT" +
             ")");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('winner_id_seq', COALESCE((SELECT MAX(id) FROM winner), 0) + 1, false)");
         } catch (Exception e) {
             // Table may already exist
         }
@@ -88,6 +98,8 @@ try {
                 "email VARCHAR(255)," +
                 "message TEXT" +
             ")");
+            // Reset sequence to avoid duplicate key errors
+            stmt.execute("SELECT setval('contact_id_seq', COALESCE((SELECT MAX(id) FROM contact), 0) + 1, false)");
         } catch (Exception e) {
             // Table may already exist
         }
